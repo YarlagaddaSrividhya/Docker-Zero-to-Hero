@@ -5,7 +5,9 @@ WORKDIR /app
 COPY requirements.txt /app
 COPY devops /app
 
-RUN sudo apt-get update && \
+RUN python3 -m venv path/to/venv
+    source path/to/venv/bin/activate
+    sudo apt-get update && \
     sudo apt-get install -y python3 python3-pipx && \
     pipx install -r requirements.txt && \
     cd devops
